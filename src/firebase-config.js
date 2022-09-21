@@ -1,5 +1,7 @@
-import { initializeApp } from './lib/firebase-app.js';
-import { getAuth } from "firebase/auth";
+// eslint-disable-next-line import/no-unresolved
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+// eslint-disable-next-line import/no-unresolved
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDHNAOi7qzGsQXf9bYvdqmeu11Idr1wKuI',
@@ -11,4 +13,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
