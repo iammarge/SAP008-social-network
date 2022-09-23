@@ -1,5 +1,4 @@
-// Este es el punto de entrada de tu aplicacion
+import signUp from './lib/register.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+const mainDiv = document.querySelector('.main');
+mainDiv.innerHTML = signUp();
