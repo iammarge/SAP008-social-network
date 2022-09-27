@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #C6EBC5;
+}
+
+.box-container{
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 1rem;
+    padding: 1rem;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input{
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #FBF2CF;
+}
+
+.register-btn{
+    background-color: #FBF2CF;
+    border-radius: 10px;
+}
+
+.google{
+    width: 1rem;
+    padding: 1rem;
+}

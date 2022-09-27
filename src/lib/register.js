@@ -7,10 +7,10 @@ export default () => {
     <picture><img class= "logo" src= "img/logo.png" alt= "logo site"</picture>
     <form action="" id= "formLogin" class= "boxSignUp">
       <div class= "register">
-        <input type= "text" placeholder= "Nome e sobrenome" id="last-and-name" class="last-name">
-        <input type= "text" placeholder= "Nome de usuário" id="user" class="user-ame">
-        <input type= "email" placeholder= "Email" id="email" class="email-register">
-        <input type= "password" placeholder= "Senha" id="pwd" class="pws-register">
+        <input type= "text" placeholder= "Nome e sobrenome" id="last-and-name" class="input">
+        <input type= "text" placeholder= "Nome de usuário" id="user" class="input">
+        <input type= "email" placeholder= "Email" id="email" class="input">
+        <input type= "password" placeholder= "Senha" id="pwd" class="input">
         <button type= "submit" id="btn-register" class="register-btn">Cadastre-se</button>
       </div>
     </form> 
