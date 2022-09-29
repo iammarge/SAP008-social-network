@@ -11,15 +11,17 @@ export default () => {
         <input type= "text" placeholder= "Nome de usuário" id="user" class="input">
         <input type= "email" placeholder= "Email" id="email" class="input">
         <input type= "password" placeholder= "Senha" id="pwd" class="input">
-        <button type= "submit" id="btn-register" class="register-btn">Cadastre-se</button>
+        <button type= "submit" id="btn-register" class="input">Cadastre-se</button>
       </div>
     </form> 
-    <a href= "">
+    <a href= "" class="register-google">
       <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Registre-se com o Google.
     </a>
-    <p class= "">Já possui cadastro?</p>
-    <a href= ""> Acesse sua conta.</a>
-    <footer> Developed by: Bruna Nunes, Marjorie Santos e Tamyres França.</footer>
+    <div class= "login">
+      <p class= "">Já possui cadastro?</p>
+      <a href= ""> Acesse sua conta.</a>
+    </div>
+    <footer class= "footer">&copy; Developed by:Bruna Nunes, Marjorie Santos e Tamyres França.</footer>
   </div>`;
   container.innerHTML = signUp;
   return signUp;

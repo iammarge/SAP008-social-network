@@ -4,14 +4,8 @@
     background-color: #C6EBC5;
 }
 
-.box-container{
-    align-items: center;
-    justify-content: center;
-}
-
 .logo{
-    width: 1rem;
-    padding: 1rem;
+    max-width: 100%;
 }
 
 .register{
@@ -22,16 +16,40 @@
 
 .input{
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #FBF2CF;
+    text-align: center;
+    font-size: 16px;
+    width: 18rem;
+    height: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
 }
 
-.register-btn{
-    background-color: #FBF2CF;
-    border-radius: 10px;
+#btn-register{
+    width: 10rem;
+}
+
+.register-google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .google{
     width: 1rem;
     padding: 1rem;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 10px;
 }
