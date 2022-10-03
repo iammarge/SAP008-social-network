@@ -12,7 +12,7 @@ export default () => {
         <input type= "text" placeholder= "Nome de usuário" id="user" class="input">
         <input type= "email" placeholder= "Email" id="email" class="input">
         <input type= "password" placeholder= "Senha" id="pwd" class="input">
-        <button type= "button" id="btn-register">Cadastre-se</button>
+        <button type= "button" id="btn-register" class="input">Cadastre-se</button>
       </div>
     <a href= "#" class="register-google">
       <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Registre-se com o Google.
@@ -28,19 +28,17 @@ export default () => {
   const btn = container.querySelector('#btn-register');
   const email = container.querySelector('#email');
   const password = container.querySelector('#pwd');
-  const form = container.querySelector('#formLogin');
 
-  console.log(btn);
   const newUser = (e) => {
     e.preventDefault();
     console.log('testando');
     return signUp(email.value, password.value);
   };
-  btn.addEventListener('click', (e) =>{
-    e.preventDefault();
-    console.log('qualquer coisa')
-  });
-  // btn.addEventListener('click', (e) => newUser(e));
+  // btn.addEventListener('click', (e) =>{
+  //   e.preventDefault();
+  //   console.log('qualquer coisa')
+  // });
+  btn.addEventListener('click', (e) => newUser(e));
 
-  return containerSignUp;
+  return container;
 };
