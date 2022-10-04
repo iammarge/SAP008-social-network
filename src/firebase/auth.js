@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { auth } from './firebase-config.js';
+import { createUserWithEmailAndPassword } from './exports.js';
+import { auth } from './config.js';
 
 export function signUp(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
