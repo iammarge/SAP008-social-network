@@ -8,8 +8,6 @@ export default () => {
   <div class= "box-container">
     <picture><img class= "logo" src= "img/logo.png" alt= "logo site"></picture>
       <div class= "register">
-        <input type= "text" placeholder= "Nome e sobrenome" id="last-and-name" class="input">
-        <input type= "text" placeholder= "Nome de usuário" id="user" class="input">
         <input type= "email" placeholder= "Email" id="email" class="input">
         <input type= "password" placeholder= "Senha" id="pwd" class="input">
         <button type= "button" id="btn-register" class="input">Cadastre-se</button>
@@ -21,7 +19,7 @@ export default () => {
       <p class= "">Já possui cadastro?</p>
       <a href= "#"> Acesse sua conta.</a>
     </div>
-    <footer class= "footer">&copy; Developed by:Bruna Nunes, Marjorie Santos e Tamyres França.</footer>
+    <footer class= "footer">&copy; Developed by: Marjorie Santos e Tamyres França.</footer>
   </div>`;
   container.innerHTML = containerSignUp;
 
@@ -34,11 +32,11 @@ export default () => {
     console.log('testando');
     return signUp(email.value, password.value);
   };
-  // btn.addEventListener('click', (e) =>{
-  //   e.preventDefault();
-  //   console.log('qualquer coisa')
-  // });
+
   btn.addEventListener('click', (e) => newUser(e));
 
   return container;
 };
+
+/* <input type= "text" placeholder= "Nome e sobrenome" id="last-and-name" class="input">
+<input type= "text" placeholder= "Nome de usuário" id="user" class="input"> */

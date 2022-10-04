@@ -17,7 +17,7 @@ export default () => {
       </a>
       <p class= "">Não possui cadastro?</p>
       <a href= "#register"> Registre-se</a>
-      <footer> Developed by: Bruna Nunes, Marjorie Santos e Tamyres França.</footer>
+      <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
     </div>`;
   containerLogin.innerHTML = templateLogin;
 
