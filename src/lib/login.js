@@ -21,12 +21,12 @@ export default () => {
     </div>`;
   containerLogin.innerHTML = templateLogin;
 
-  const init = () => {
-    window.addEventListener('hashchange', () => console.log(window.location.hash));
-  };
+  // const init = () => {
+  //   window.addEventListener('hashchange', () => console.log(window.location.hash));
+  // };
 
-  window.addEventListener('load', () => {
-    init();
-  });
+  // window.addEventListener('load', () => {
+  //   init();
+  // });
   return templateLogin;
 };
