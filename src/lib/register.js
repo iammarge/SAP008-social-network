@@ -29,7 +29,6 @@ export default () => {
 
   const newUser = (e) => {
     e.preventDefault();
-    console.log('testando');
     return signUp(email.value, password.value);
   };
 
