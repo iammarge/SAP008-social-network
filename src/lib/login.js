@@ -21,5 +21,11 @@ export default () => {
     </div>`;
   containerLogin.innerHTML = templateLogin;
 
+  const btnGoogle = containerLogin.querySelector('.google');
+  btnGoogle.addEventListener('click', (e) =>{
+    e.preventDefault();
+    console.log("btn OK")
+  })
+
   return containerLogin;
 };
