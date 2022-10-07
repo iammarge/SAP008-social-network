@@ -1,3 +1,5 @@
+import { singInWithGoogle } from '../firebase/auth.js'
+
 // CRIAÇÃO FORM DE LOGIN
 export default () => {
   const containerLogin = document.createElement('div');
@@ -25,6 +27,8 @@ export default () => {
   btnGoogle.addEventListener('click', (e) =>{
     e.preventDefault();
     console.log("btn OK")
+    singInWithGoogle()
+
   })
 
   return containerLogin;
