@@ -29,7 +29,10 @@ export default () => {
 
   const newUser = (e) => {
     e.preventDefault();
-    return signUp(email.value, password.value);
+    return signUp(email.value, password.value)
+    .then(() => {
+      window.location.hash = '#feed'
+    })
   };
 
   btn.addEventListener('click', (e) => newUser(e));

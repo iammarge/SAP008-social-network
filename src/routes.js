@@ -1,5 +1,6 @@
 import login from './lib/login.js';
 import register from './lib/register.js';
+import feed from './lib/feed.js';
 
 const main = document.querySelector('.main');
 const screens = () => {
@@ -12,6 +13,9 @@ const screens = () => {
       main.innerHTML = '';
       main.appendChild(register());
       break;
+    case '#feed':
+      main.appendChild(feed());
+      break
     default: main.appendChild(login());
   }
 };

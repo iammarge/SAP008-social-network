@@ -28,7 +28,7 @@
     outline: 0;
 }
 
-#btn-register{
+#btn-register, #btn-login{
     width: 10rem;
 }
 

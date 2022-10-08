@@ -1,8 +1,8 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from './exports.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from './exports.js';
 import { auth } from './config.js';
 
 export function signUp(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
+  return  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       console.log('caiu no then');
@@ -16,11 +16,25 @@ export function signUp(email, password) {
       const errorMessage = error.message;
       console.log(errorCode, ':', errorMessage);
       // ..
-    });
+    });   
 }
+export function signIn(email, password){
+return signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log('entrou no signIn')
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+}
+
 export function singInWithGoogle(){  
   const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
+  return signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);

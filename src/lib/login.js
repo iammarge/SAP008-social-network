@@ -1,4 +1,4 @@
-import { singInWithGoogle } from '../firebase/auth.js'
+import { singInWithGoogle, signIn } from '../firebase/auth.js'
 
 // CRIAÇÃO FORM DE LOGIN
 export default () => {
@@ -11,11 +11,11 @@ export default () => {
         <div class= "register">
           <input type= "email" placeholder= "Email" id="email" class="input">
           <input type= "password" placeholder= "Senha" id="pwd" class="input">
-          <button type= "submit" id="btn-register" class="input">Login</button>
+          <button type= "submit" id="btn-login" class="input">Login</button>
         </div>
       </form> 
       <a href= "">
-        <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Registre-se com o Google.
+        <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Registre-se com o Google.>
       </a>
       <p class= "">Não possui cadastro?</p>
       <a href= "#register"> Registre-se</a>
@@ -23,13 +23,30 @@ export default () => {
     </div>`;
   containerLogin.innerHTML = templateLogin;
 
+  const emailLogin = containerLogin.querySelector('#email');
+  const passwordLogin = containerLogin.querySelector('#pwd')
+  const btnLogin = containerLogin.querySelector('#btn-login');
+
+
+  btnLogin.addEventListener('click', (e) =>{
+    e.preventDefault();
+    console.log("btn-login OK")
+    signIn(emailLogin.value, passwordLogin.value)
+    .then(() => {
+      console.log('caiu no then para feed')
+      window.location.hash = '#feed'
+    })
+  })
+
   const btnGoogle = containerLogin.querySelector('.google');
   btnGoogle.addEventListener('click', (e) =>{
     e.preventDefault();
     console.log("btn OK")
     singInWithGoogle()
-
+    .then(() => {
+      console.log('entrou no then login')
+      window.location.hash = '#feed'
+    })
   })
-
   return containerLogin;
 };
