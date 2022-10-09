@@ -8,8 +8,8 @@ export default () => {
   <div class= "box-container">
     <picture><img class= "logo" src= "img/logo.png" alt= "logo site"></picture>
       <div class= "register">
-        <input type= "email" placeholder= "Email" id="email" class="input">
-        <input type= "password" placeholder= "Senha" id="pwd" class="input">
+        <input type= "email" placeholder= "Email" id="email" class="input" required>
+        <input type= "password" placeholder= "Senha" id="pwd" class="input" required>
         <button type= "button" id="btn-register" class="input">Cadastre-se</button>
       </div>
     <a href= "#" class="register-google">
@@ -33,6 +33,14 @@ export default () => {
     .then(() => {
       window.location.hash = '#feed'
     })
+    .catch((error) => {
+      console.log('caiu no catch');
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, ':', errorMessage);
+      // ..
+    });
+    
   };
 
   btn.addEventListener('click', (e) => newUser(e));

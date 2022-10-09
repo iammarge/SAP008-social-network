@@ -10,13 +10,13 @@ export function signUp(email, password) {
       console.log(user, 'Criou a conta');
       // ...
     })
-    .catch((error) => {
-      console.log('caiu no catch');
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, ':', errorMessage);
-      // ..
-    });   
+    // .catch((error) => {
+    //   console.log('caiu no catch');
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   console.log(errorCode, ':', errorMessage);
+    //   // ..
+    // });   
 }
 export function signIn(email, password){
 return signInWithEmailAndPassword(auth, email, password)
@@ -26,10 +26,11 @@ return signInWithEmailAndPassword(auth, email, password)
     console.log('entrou no signIn')
     // ...
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+  // .catch((error) => {
+  //   console.log('caiu no catch singIn')
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  // });
 }
 
 export function singInWithGoogle(){  

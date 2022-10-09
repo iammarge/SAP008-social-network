@@ -9,8 +9,8 @@ export default () => {
       <picture><img class= "logo" src= "img/logo.png" alt= "logo site"</picture>
       <form action="" id= "formLogin" class= "boxSignUp">
         <div class= "register">
-          <input type= "email" placeholder= "Email" id="email" class="input">
-          <input type= "password" placeholder= "Senha" id="pwd" class="input">
+          <input type= "email" placeholder= "Email" id="email" class="input" required>
+          <input type= "password" placeholder= "Senha" id="pwd" class="input" required>
           <button type= "submit" id="btn-login" class="input">Login</button>
         </div>
       </form> 
@@ -35,7 +35,12 @@ export default () => {
     .then(() => {
       console.log('caiu no then para feed')
       window.location.hash = '#feed'
-    })
+    })    
+    .catch((error) => {
+      console.log('caiu no catch singIn')
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      })   
   })
 
   const btnGoogle = containerLogin.querySelector('.google');
