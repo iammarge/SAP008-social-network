@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;       
+}
+
+.div-feed{
+    background-color: #ffffff;
+}
+
+.nav-header{
+    background: #FA7070;    
+}
+
+.logo-feed{
+    width: 5rem;
+    height: 5rem;
+    background: #FA7070;
+}
+
+#btn-search{
+    width: 1rem;
+    height: 1rem; 
+    background: #FA7070;   
+}
+
+.form-message{
+    padding: 15px;
+}
+#message{
+    width: 18rem;
+    height: 10rem; 
+}

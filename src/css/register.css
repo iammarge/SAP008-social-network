@@ -1,6 +1,9 @@
 *{
     margin: 0;
     padding: 0;
+}
+
+.box-container{
     background-color: #C6EBC5;
 }
 
