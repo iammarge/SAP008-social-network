@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #C6EBC5;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input{
+    margin-bottom: 10px;
+    border-radius: 30px;
+    background-color: #FBF2CF;
+    text-align: center;
+    font-size: 16px;
+    width: 18rem;
+    height: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+#btn-register, #btn-login{
+    width: 10rem;
+}
+
+.register-google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google{
+    width: 1rem;
+    padding: 1rem;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 10px;
+}

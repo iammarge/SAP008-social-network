@@ -1,5 +1,5 @@
-// Este es el punto de entrada de tu aplicacion
+// import containerSignUp from './lib/register.js';
+// // import { screens } from './routes.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+// const mainDiv = document.querySelector('.main');
+// mainDiv.appendChild(containerSignUp());
