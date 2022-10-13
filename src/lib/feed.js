@@ -23,6 +23,14 @@ export default () => {
     </div>  
 `;
     containerFeed.innerHTML = templateFeed;
+
+    const textArea = containerFeed.querySelector("#message");
+    const textPublish = containerFeed.querySelector("#text-publish");
+    const btnPublish = containerFeed.querySelector("#publish");
+    btnPublish.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log("botão publicar ok");
+    })
   
   
     return containerFeed;
