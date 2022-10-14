@@ -1,4 +1,4 @@
-
+import { createPost } from '../firebase/firestore.js';
 
 export default () => {
     const containerFeed = document.createElement('div');
@@ -19,6 +19,7 @@ export default () => {
         <button type="submit" id="publish" class="btn-publish">Publicar</button>
       </form>
       </div>
+      <p id="text-publish"></p>
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
     </div>  
 `;
@@ -30,6 +31,7 @@ export default () => {
     btnPublish.addEventListener('click', (e) => {
       e.preventDefault();
       console.log("botão publicar ok");
+      createPost();
     })
   
   
