@@ -1,4 +1,4 @@
-import { createPost } from '../firebase/firestore.js';
+import { createPost, readPost } from '../firebase/firestore.js';
 
 export default () => {
     const containerFeed = document.createElement('div');
@@ -19,21 +19,33 @@ export default () => {
         <button type="submit" id="publish" class="btn-publish">Publicar</button>
       </form>
       </div>
-      <p id="text-publish"></p>
+      <p id="text-publish"> Carregando... </p>
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
     </div>  
 `;
     containerFeed.innerHTML = templateFeed;
 
-    const textArea = containerFeed.querySelector("#message");
+    const textPost = containerFeed.querySelector("#message");
     const textPublish = containerFeed.querySelector("#text-publish");
-    const btnPublish = containerFeed.querySelector("#publish");
+    const btnPublish = containerFeed.querySelector("#publish");   
+
     btnPublish.addEventListener('click', (e) => {
       e.preventDefault();
       console.log("botão publicar ok");
-      createPost();
-    })
-  
-  
+      createPost(textPost.value);
+      readAndWritePost(textPublish);      
+    }) 
+    readAndWritePost(textPublish);    
     return containerFeed;
   };
+
+  async function readAndWritePost(textPublish) {
+    const listPost = await readPost()    
+    let templatePost = "<ul>"
+    listPost.forEach(post => {     
+    templatePost += "<li>"+ post.text +"</li>"
+    });
+    templatePost += "</ul>"
+    textPublish.innerHTML = templatePost
+    }
+ 
