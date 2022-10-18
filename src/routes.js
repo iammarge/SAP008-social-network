@@ -15,7 +15,7 @@ const screens = () => {
       break;
     case '#feed':
       main.appendChild(feed());
-      break
+      break;
     default: main.appendChild(login());
   }
 };
