@@ -7,19 +7,24 @@ export default () => {
     <div class=div-feed>
       <nav class="nav-header">
         <img class="logo-feed" src="img/logo.png" alt="logo Google">
+        <button type="submit" id="btn-about-us" class="button-nav">Sobre Nós</button>
+        <button type="submit" id="btn-profile" class="button-nav">Profile</button>
 
         <div id="buscar"></div>
           <input type="text" class="search-for" placeholder="Buscar..." />
           <img src="img/lupa.png" id="btn-search" alt="Buscar" />
         </div>
       </nav>
+      <section class="section-message">      
+        <textarea id="message" placeholder="Escreva sua publicação aqui..."></textarea>  
+        <div class="div-publish">    
+         <p id=error-msg class=error-msg>...</p>
+         <button type="submit" id="publish" class="btn-publish">Publicar</button>  
+        </div>
+      </section>
       <div>
-      <form class="form-message">
-        <textarea id="message" placeholder="Escreva sua publicação aqui..."></textarea>
-        <button type="submit" id="publish" class="btn-publish">Publicar</button>
-      </form>
-      </div>
-      <p id="text-publish"> Carregando... </p>
+       <p id="text-publish"> Carregando... </p>
+      </div> 
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
     </div>  
 `;
