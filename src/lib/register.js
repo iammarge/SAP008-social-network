@@ -14,10 +14,11 @@ import { updateProfile } from '../firebase/exports.js';
 
 // CRIAÇÃO FORM DE REGISTRO
 export default () => {
+  const body = document.body;
+  body.classList.add('login-page');
   const container = document.createElement('div');
-  container.classList.add('set');
-  const containerSignUp = `
-  <div class= "box-container">
+  container.classList.add('container-login');
+  const containerSignUp = `  
     <picture><img class= "logo" src= "img/logo.png" alt= "logo site"></picture>
       <div class= "register">
         <input type= "text" placeholder= "Nome de usuário" id="user" class="input">
@@ -31,7 +32,7 @@ export default () => {
       <a href= "#"> Acesse sua conta.</a>
     </div>
     <footer class= "footer">&copy; Developed by: Marjorie Santos e Tamyres França.</footer>
-  </div>`;
+  `;
   container.innerHTML = containerSignUp;
 
   const btn = container.querySelector('#btn-register');

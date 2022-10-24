@@ -1,6 +1,8 @@
 import { createPost, readPost } from '../firebase/firestore.js';
 
 export default () => {
+  const body = document.body;
+  body.classList.remove('login-page');
   const containerFeed = document.createElement('div');
   containerFeed.classList.add('set-feed');
   const templateFeed = `
