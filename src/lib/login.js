@@ -12,11 +12,12 @@ import { redirect } from '../redirect.js';
 
 // CRIAÇÃO FORM DE LOGIN
 export default () => {
+  const body = document.body;
+  body.classList.add('login-page');
   const containerLogin = document.createElement('div');
-  containerLogin.classList.add('set-login');
-  const templateLogin = `
-    <div class= "box-container">
-      <picture><img class= "logo" src= "img/logo.png" alt= "logo site"</picture>
+  containerLogin.classList.add('container-login');
+  const templateLogin = `    
+      <picture><img class= "logo" src= "img/logo.png" alt= "logo site"/></picture>
       <form action="" id= "formLogin" class= "boxSignUp">
         <div class= "register">
           <input type= "email" placeholder= "Email" id="email" class="input" required>
@@ -28,10 +29,11 @@ export default () => {
       <a id="btn-google" href= "">
         <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Entre com o Google.
       </a>
-      <p class= "">Não possui cadastro?</p>
-      <a id="btn-register" href= "#register"> Registre-se</a>
+      <p class= "">
+        Não possui cadastro? <a id="btn-register" href= "#register"> Registre-se</a>        
+      </p>      
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
-    </div>`;
+    `;
   containerLogin.innerHTML = templateLogin;
 
   const emailLogin = containerLogin.querySelector('#email');

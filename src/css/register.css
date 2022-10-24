@@ -1,7 +1,18 @@
 *{
     margin: 0;
     padding: 0;
+}
+
+.login-page{
     background-color: #C6EBC5;
+}
+
+.container-login{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .logo{

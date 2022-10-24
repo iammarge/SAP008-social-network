@@ -8,5 +8,5 @@ export {
   GoogleAuthProvider,
   updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js'; //eslint-disable-line
-
-export { getFirestore } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';//eslint-disable-line
+// eslint-disable-next-line import/no-unresolved
+export { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
