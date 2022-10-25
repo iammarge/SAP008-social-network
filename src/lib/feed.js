@@ -33,9 +33,7 @@ export default () => {
 
   const textPost = containerFeed.querySelector('#message');
   const textPublish = containerFeed.querySelector('#section-posts');
-  console.log(textPost);  
   const btnPublish = containerFeed.querySelector('#publish');
-  console.log(btnPublish);
   const templatePublish = (post) => {
     const containerPost = document.createElement('div');
     containerPost.innerHTML = `
