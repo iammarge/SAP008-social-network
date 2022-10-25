@@ -1,10 +1,14 @@
 import { collection, addDoc, getDocs } from './exports.js';
-import { db } from './config.js';
+import { auth, db } from './config.js';
 
 export async function createPost(textPost) {
   try {
     const docRef = await addDoc(collection(db, 'textPost'), {
       text: textPost,
+      emailUser: auth.currentUser.email,
+      user: auth.currentUser.displayName,
+      data: new Date(),
+      uidUser: auth.currentUser.uid,
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {

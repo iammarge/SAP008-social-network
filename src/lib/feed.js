@@ -1,3 +1,4 @@
+import { getUser } from '../firebase/auth.js';
 import { createPost, readPost } from '../firebase/firestore.js';
 
 export default () => {
@@ -35,10 +36,12 @@ export default () => {
   const textPublish = containerFeed.querySelector('#section-posts');
   const btnPublish = containerFeed.querySelector('#publish');
   const templatePublish = (post) => {
+    const user = getUser();
+    const isUserPost = user.uidUser === post.uidUser;
     const containerPost = document.createElement('div');
     containerPost.innerHTML = `
       <div class="post-feed">
-        <p class="user-name">{nome usuário}</p>
+        <p class="user-name">${post.user}</p>       
         <div class="post-div">
           <p class="post-text" contenteditable="false">${post.text}</p>
         </div>

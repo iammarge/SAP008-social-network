@@ -21,3 +21,6 @@ export async function login(email, password) {
 export async function signInGoogle() {
   return signInWithPopup(auth, google);
 }
+export function getUser() {
+  return auth.currentUser;
+}
