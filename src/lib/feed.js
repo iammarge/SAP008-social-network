@@ -12,7 +12,7 @@ export default () => {
         <button type="submit" id="btn-about-us" class="button-nav">Sobre Nós</button>
         <button type="submit" id="btn-profile" class="button-nav">Profile</button>
 
-        <div id="buscar"></div>
+        <div id="buscar">
           <input type="text" class="search-for" placeholder="Buscar..." />
           <img src="img/lupa.png" id="btn-search" alt="Buscar" />
         </div>
@@ -24,35 +24,45 @@ export default () => {
          <button type="submit" id="publish" class="btn-publish">Publicar</button>  
         </div>
       </section>
-      <div>
-       <p id="text-publish"> Carregando... </p>
-      </div> 
+      <section id="section-posts" class="posts">
+      </section> 
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
     </div>  
 `;
   containerFeed.innerHTML = templateFeed;
 
-  const textPost = containerFeed.querySelector("#message");
-  const textPublish = containerFeed.querySelector("#text-publish");
-  const btnPublish = containerFeed.querySelector("#publish");
+  const textPost = containerFeed.querySelector('#message');
+  const textPublish = containerFeed.querySelector('#section-posts');
+  console.log(textPost);  
+  const btnPublish = containerFeed.querySelector('#publish');
+  console.log(btnPublish);
+  const templatePublish = (post) => {
+    const containerPost = document.createElement('div');
+    containerPost.innerHTML = `
+      <div class="post-feed">
+        <p class="user-name">{nome usuário}</p>
+        <div class="post-div">
+          <p class="post-text" contenteditable="false">${post.text}</p>
+        </div>
+      </div>  
+      `;
+    return containerPost;
+  };
+
+  const readAndWritePost = async () => {
+    const listPost = await readPost();
+    textPublish.innerHTML = '';
+    listPost.forEach((post) => {
+      textPublish.appendChild(templatePublish(post));
+    });
+  };
 
   btnPublish.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log("botão publicar ok");
     createPost(textPost.value);
-    readAndWritePost(textPublish);
-  })
-  readAndWritePost(textPublish);
+    readAndWritePost();
+  });
+  readAndWritePost();
+
   return containerFeed;
 };
-
-async function readAndWritePost(textPublish) {
-  const listPost = await readPost()
-  let templatePost = "<ul>"
-  listPost.forEach(post => {
-    templatePost += "<li>" + post.text + "</li>"
-  });
-  templatePost += "</ul>"
-  textPublish.innerHTML = templatePost
-}
-

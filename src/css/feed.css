@@ -79,3 +79,20 @@
     background: #FA7070;
     margin: 10px;
 }
+
+#section-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-feed{
+    margin: 1rem;
+    padding: 5px;
+    width: 18rem;
+    height: 9rem;
+    border-radius: 10px;
+    background-color: #C6EBC5;
+    text-align: center;
+    font-weight: bold
+}
