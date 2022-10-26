@@ -1,5 +1,5 @@
 import { getUser } from '../firebase/auth.js';
-import { createPost, readPost } from '../firebase/firestore.js';
+import { createPost, readPost, likes } from '../firebase/firestore.js';
 
 export default () => {
   const body = document.body;
@@ -45,8 +45,24 @@ export default () => {
         <div class="post-div">
           <p class="post-text" contenteditable="false">${post.text}</p>
         </div>
-      </div>  
+      </div>   
+        <div class="likes-div">
+          <button id="btn-likes" class="likes-btn">
+            <div class="heart"></div>
+          </button>
+          <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
+        </div>     
       `;
+    const btnLike = containerPost.querySelector('.likes-btn');
+    btnLike.addEventListener('click', async (e) => {
+      e.preventDefault();
+      likes(post.id).then(() => {
+        post.likes.push(getUser().uid)
+        const newLikes = post.likes.length;
+        const numLikes = containerPost.querySelector('#num-likes-'+post.id);
+        numLikes.innerHTML = newLikes;
+      });
+    });
     return containerPost;
   };
 
@@ -62,6 +78,7 @@ export default () => {
     e.preventDefault();
     createPost(textPost.value);
     readAndWritePost();
+    textPost.value = '';
   });
   readAndWritePost();
 

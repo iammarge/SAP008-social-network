@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs } from './exports.js';
+import { collection, addDoc, getDocs, doc, updateDoc, arrayUnion } from './exports.js';
 import { auth, db } from './config.js';
 
 export async function createPost(textPost) {
@@ -9,6 +9,7 @@ export async function createPost(textPost) {
       user: auth.currentUser.displayName,
       data: new Date(),
       uidUser: auth.currentUser.uid,
+      likes: [],
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -21,10 +22,20 @@ export async function readPost() {
     const listPost = [];
     const querySnapshot = await getDocs(collection(db, 'textPost'));
     querySnapshot.forEach((doc) => {
-      listPost.push(doc.data());
+      const post = doc.data();
+      post.id = doc.id;
+      listPost.push(post);
     });
     return listPost;
   } catch (e) {
     console.error('Error adding document: ', e);
   }
+}
+
+export function likes(id) {
+  console.log(id)
+  const post = doc(db, 'textPost', id);
+  return updateDoc(post, {
+    likes: arrayUnion(auth.currentUser.uid),
+  });
 }
