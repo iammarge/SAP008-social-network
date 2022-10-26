@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signOut,
 } from './exports.js';
 
 import { app } from './config.js';
@@ -21,6 +22,11 @@ export async function login(email, password) {
 export async function signInGoogle() {
   return signInWithPopup(auth, google);
 }
+
 export function getUser() {
   return auth.currentUser;
+}
+
+export function logout() {
+  return signOut(auth);
 }

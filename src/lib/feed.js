@@ -1,5 +1,15 @@
-import { getUser } from '../firebase/auth.js';
-import { createPost, readPost, likes } from '../firebase/firestore.js';
+import {
+  getUser,
+  logout,
+} from '../firebase/auth.js';
+
+import {
+  createPost,
+  readPost,
+  likes,
+} from '../firebase/firestore.js';
+
+import { redirect } from '../redirect.js';
 
 export default () => {
   const body = document.body;
@@ -12,11 +22,9 @@ export default () => {
         <img class="logo-feed" src="img/logo.png" alt="logo Google">
         <button type="submit" id="btn-about-us" class="button-nav">Sobre Nós</button>
         <button type="submit" id="btn-profile" class="button-nav">Profile</button>
-
-        <div id="buscar">
-          <input type="text" class="search-for" placeholder="Buscar..." />
-          <img src="img/lupa.png" id="btn-search" alt="Buscar" />
-        </div>
+        <a id="btn-logout" class="button-sair">
+          <img class="img-logout" src="img/logout.png" alt="Botão Sair">
+        </a>
       </nav>
       <section class="section-message">      
         <textarea id="message" placeholder="Escreva sua publicação aqui..."></textarea>  
@@ -35,6 +43,8 @@ export default () => {
   const textPost = containerFeed.querySelector('#message');
   const textPublish = containerFeed.querySelector('#section-posts');
   const btnPublish = containerFeed.querySelector('#publish');
+  const btnLogout = containerFeed.querySelector('#btn-logout');
+
   const templatePublish = (post) => {
     const user = getUser();
     const isUserPost = user.uidUser === post.uidUser;
@@ -82,5 +92,17 @@ export default () => {
   });
   readAndWritePost();
 
+  btnLogout.addEventListener('click', () => {
+    logout()
+      .then(() => {
+        redirect('#');
+      });
+  });
+
   return containerFeed;
 };
+
+// { <div id="buscar">
+//           <input type="text" class="search-for" placeholder="Buscar..." />
+//           <img src="img/lupa.png" id="btn-search" alt="Buscar" />
+//         </div> */}
