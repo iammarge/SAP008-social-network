@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signOut,
 } from './exports.js';
 
 import { app } from './config.js';
@@ -18,6 +19,11 @@ export async function signIn(email, password) {
 export async function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
+
 export async function signInGoogle() {
   return signInWithPopup(auth, google);
+}
+
+export function logout() {
+  signOut(auth);
 }

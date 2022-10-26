@@ -4,7 +4,7 @@ export default () => {
   const body = document.body;
   body.classList.remove('login-page');
   const containerFeed = document.createElement('div');
-  containerFeed.classList.add('set-feed');
+  containerFeed.classList.add('container-feed');
   const templateFeed = `
     <div class=div-feed>
       <nav class="nav-header">
