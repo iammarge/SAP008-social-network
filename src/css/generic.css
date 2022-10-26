@@ -19,6 +19,15 @@
     max-width: 100%;
 }
 
+.box-login{
+    background-color: rgb(255 255 255 / 60%);
+    padding: 30px 10px 20px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .register{
     display: flex;
     flex-direction: column;
@@ -49,9 +58,15 @@
     align-items: center;
 }
 
+#btn-google{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .google{
-    width: 1rem;
-    padding: 1rem;
+    width: 2rem;
+    padding: 8px;
 }
 
 .login{

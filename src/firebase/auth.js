@@ -24,6 +24,10 @@ export async function signInGoogle() {
   return signInWithPopup(auth, google);
 }
 
+export function getUser() {
+  return auth.currentUser;
+}
+
 export function logout() {
   signOut(auth);
 }

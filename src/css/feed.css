@@ -79,3 +79,66 @@
     background: #FA7070;
     margin: 10px;
 }
+
+#section-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-feed{
+    margin: 5px;
+    padding: 5px;
+    width: 18rem;
+    height: 9rem;
+    border-radius: 10px;
+    background-color: #C6EBC5;
+    text-align: center;
+    font-weight: bold
+}
+
+.likes-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px 5px 20px 20px;
+    border-radius: 50px;
+}
+
+#btn-likes{
+    border-radius: 100px;
+    border: 0;
+    background: white;
+}
+
+.heart{
+    margin: 3px;
+    background-color: #FA7070;
+    height: 10px;
+    transform: rotate(-45deg);
+    width: 10px;
+    position: relative;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: #FA7070;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+.heart:before {
+    left: 6px;
+}
+
+.heart:after {
+    right: 0px;
+    top: -6px;
+}
+
+.number-likes{
+    margin-left: 10px;
+}
