@@ -5,6 +5,7 @@ import {
   doc,
   updateDoc,
   arrayUnion,
+  arrayRemove,
 } from './exports.js';
 
 import {
@@ -48,5 +49,12 @@ export function likes(id) {
   const post = doc(db, 'textPost', id);
   return updateDoc(post, {
     likes: arrayUnion(auth.currentUser.uid),
+  });
+}
+
+export function dislike(id) {
+  const post = doc(db, 'textPost', id);
+  return updateDoc(post, {
+    likes: arrayRemove(auth.currentUser.uid),
   });
 }
