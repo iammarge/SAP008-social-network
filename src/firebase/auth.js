@@ -29,5 +29,9 @@ export function getUser() {
 }
 
 export function logout() {
+<<<<<<< HEAD
   signOut(auth);
+=======
+  return signOut(auth);
+>>>>>>> 5fe2acbaa273fd4eaad449e819eee6ec3cf287b3
 }

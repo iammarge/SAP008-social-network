@@ -6,7 +6,7 @@ const main = document.querySelector('.main');
 const screens = () => {
   main.innerHTML = '';
   switch (window.location.hash) {
-    case ' ':
+    case '#':
       main.appendChild(login());
       break;
     case '#register':
