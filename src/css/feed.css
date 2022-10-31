@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;       
+}
+
+.button-nav,.btn-publish{
+    background: #FBF2CF;
+    height: 25px;
+    width: 80px;
+    border: 0;
+    border-radius: 15px;
+}
+.button-nav{
+    background: #FBF2CF;
+}
+
+.div-feed{
+    background-color: #ffffff;
+}
+
+.nav-header{
+    background: #FA7070;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;    
+}
+
+.logo-feed{
+    width: 5rem;
+    height: 5rem;
+    background: #FA7070;
+}
+
+#btn-search{
+    width: 1rem;
+    height: 1rem; 
+    background: #FA7070;   
+}
+
+.form-message{
+    padding: 15px;
+}
+
+.section-message{     
+    margin: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#message{
+    width: 75%;
+    height: 160px;
+    background-color: #C6EBC5;
+    border: 0;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;    
+}
+
+.div-publish{
+    display: inline-flex;
+    margin: auto;
+    padding-left: 7rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.error-msg{
+    font-weight: bold;
+   
+}
+
+
+.btn-publish{
+    background: #FA7070;
+    margin: 10px;
+}
+
+#section-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-feed{
+    margin: 5px;
+    padding: 5px;
+    width: 18rem;
+    height: 9rem;
+    border-radius: 10px;
+    background-color: #C6EBC5;
+    text-align: center;
+    font-weight: bold
+}
+
+.likes-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px 5px 20px 20px;
+    border-radius: 50px;
+}
+
+#btn-likes{
+    border-radius: 100px;
+    border: 0;
+    background: white;
+}
+
+.heart{
+    margin: 3px;
+    background-color: #FA7070;
+    height: 10px;
+    transform: rotate(-45deg);
+    width: 10px;
+    position: relative;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: #FA7070;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+.heart:before {
+    left: 6px;
+}
+
+.heart:after {
+    right: 0px;
+    top: -6px;
+}
+
+.number-likes{
+    margin-left: 10px;
+}
