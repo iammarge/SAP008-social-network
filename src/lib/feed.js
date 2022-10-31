@@ -1,4 +1,5 @@
-import { getUser } from '../firebase/auth.js';
+import { getUser, logout } from '../firebase/auth.js';
+import { redirect } from '../redirect.js';
 import { createPost, readPost, likes } from '../firebase/firestore.js';
 
 export default () => {
@@ -17,6 +18,7 @@ export default () => {
           <input type="text" class="search-for" placeholder="Buscar..." />
           <img src="img/lupa.png" id="btn-search" alt="Buscar" />
         </div>
+        <button id="btn-logout" class="btn-out">Sair</button>
       </nav>
       <section class="section-message">      
         <textarea id="message" placeholder="Escreva sua publicação aqui..."></textarea>  
@@ -35,6 +37,8 @@ export default () => {
   const textPost = containerFeed.querySelector('#message');
   const textPublish = containerFeed.querySelector('#section-posts');
   const btnPublish = containerFeed.querySelector('#publish');
+  const btnLogout = containerFeed.querySelector('#btn-logout');
+
   const templatePublish = (post) => {
     const user = getUser();
     const isUserPost = user.uidUser === post.uidUser;
@@ -53,6 +57,7 @@ export default () => {
           <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
         </div>     
       `;
+
     const btnLike = containerPost.querySelector('.likes-btn');
     btnLike.addEventListener('click', async (e) => {
       e.preventDefault();
