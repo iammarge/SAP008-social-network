@@ -7,6 +7,7 @@ import {
   createPost,
   readPost,
   likes,
+  dislike,
 } from '../firebase/firestore.js';
 
 import { redirect } from '../redirect.js';
@@ -46,8 +47,8 @@ export default () => {
   const btnLogout = containerFeed.querySelector('#btn-logout');
 
   const templatePublish = (post) => {
-    const user = getUser();
-    const isUserPost = user.uidUser === post.uidUser;
+    // const user = getUser();
+    // // const isUserPost = user.uidUser === post.uidUser;
     const containerPost = document.createElement('div');
     containerPost.innerHTML = `
       <div class="post-feed">
@@ -67,12 +68,22 @@ export default () => {
     const btnLike = containerPost.querySelector('.likes-btn');
     btnLike.addEventListener('click', async (e) => {
       e.preventDefault();
-      likes(post.id).then(() => {
-        post.likes.push(getUser().uid);
-        const newLikes = post.likes.length;
-        const numLikes = containerPost.querySelector('#num-likes-' + post.id);
-        numLikes.innerHTML = newLikes;
-      });
+      if (!post.likes.includes(getUser().uid)) {
+        likes(post.id).then(() => {
+          post.likes.push(getUser().uid);
+          const newLikes = post.likes.length;
+          const numLikes = containerPost.querySelector(`#num-likes-${post.id}`);
+          numLikes.innerHTML = newLikes;
+        });
+      } else {
+        dislike(post.id).then(() => {
+          const index = post.likes.indexOf(getUser().uid);
+          post.likes.splice(index, 1);
+          const newDislike = post.likes.length;
+          const numLikes = containerPost.querySelector(`#num-likes-${post.id}`);
+          numLikes.innerHTML = newDislike;
+        });
+      }
     });
     return containerPost;
   };
