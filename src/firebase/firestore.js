@@ -7,14 +7,10 @@ import {
   arrayUnion,
 } from './exports.js';
 
-<<<<<<< HEAD
-import { auth, db } from './config.js';
-=======
 import {
   auth,
   db,
 } from './config.js';
->>>>>>> 5fe2acbaa273fd4eaad449e819eee6ec3cf287b3
 
 export async function createPost(textPost) {
   try {
@@ -49,10 +45,6 @@ export async function readPost() {
 }
 
 export function likes(id) {
-<<<<<<< HEAD
-  console.log(id);
-=======
->>>>>>> 5fe2acbaa273fd4eaad449e819eee6ec3cf287b3
   const post = doc(db, 'textPost', id);
   return updateDoc(post, {
     likes: arrayUnion(auth.currentUser.uid),
