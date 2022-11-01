@@ -47,14 +47,14 @@ export default () => {
   const btnLogout = containerFeed.querySelector('#btn-logout');
 
   const templatePublish = (post) => {
-    // const user = getUser();
-    // // const isUserPost = user.uidUser === post.uidUser;
+    const user = getUser();
+    const isUserPost = user.uid === post.uidUser;
     const containerPost = document.createElement('div');
     containerPost.innerHTML = `
       <div class="post-feed">
         <p class="user-name">${post.user}</p>       
         <div class="post-div">
-          <p class="post-text" contenteditable="false">${post.text}</p>
+          <p id="post-text-id" class="post-text" contenteditable="false">${post.text}</p>
         </div>
       </div>   
         <div class="likes-div">
@@ -62,12 +62,17 @@ export default () => {
             <div class="heart"></div>
           </button>
           <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
+          ${isUserPost ? '<button id="btn-edit" class="btn-edit"><img class="edit" src="img/edit.png" alt="Botão Editar"></button>' : ''}
+
         </div>     
       `;
 
     const btnLike = containerPost.querySelector('.likes-btn');
+    const btnEdit = containerPost.querySelector('#btn-edit');
+
     btnLike.addEventListener('click', async (e) => {
       e.preventDefault();
+      // o if está verificando se o usuário logado não está incluso na lista de likes
       if (!post.likes.includes(getUser().uid)) {
         likes(post.id).then(() => {
           post.likes.push(getUser().uid);
@@ -77,7 +82,9 @@ export default () => {
         });
       } else {
         dislike(post.id).then(() => {
+          // nessa linha verifica a posição do usuário na array dos likes
           const index = post.likes.indexOf(getUser().uid);
+          // apaga 1 elemento a partir da posição encontrada para frente
           post.likes.splice(index, 1);
           const newDislike = post.likes.length;
           const numLikes = containerPost.querySelector(`#num-likes-${post.id}`);
@@ -85,6 +92,14 @@ export default () => {
         });
       }
     });
+
+    if (isUserPost) {
+      btnEdit.addEventListener('click', async () => {
+        console.log('btn edit');
+        const postText = containerPost.querySelector('#post-text-id');
+        postText.setAttribute('contenteditable', true);
+      });
+    }
     return containerPost;
   };
 

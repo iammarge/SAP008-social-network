@@ -142,3 +142,14 @@
 .number-likes{
     margin-left: 10px;
 }
+
+.btn-edit{
+    border: 0;
+    border-radius: 50px;
+}
+
+.edit{
+    background: white;
+    width: 25px;
+    padding-left: 5px;
+}
