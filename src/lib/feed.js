@@ -8,6 +8,7 @@ import {
   readPost,
   likes,
   dislike,
+  editPost,
 } from '../firebase/firestore.js';
 
 import { redirect } from '../redirect.js';
@@ -63,7 +64,7 @@ export default () => {
           </button>
           <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
           ${isUserPost ? '<button id="btn-edit" class="btn-edit"><img class="edit" src="img/edit.png" alt="Botão Editar"></button>' : ''}
-
+          <div class="btn-confirm"></div>
         </div>     
       `;
 
@@ -97,7 +98,20 @@ export default () => {
       btnEdit.addEventListener('click', async () => {
         console.log('btn edit');
         const postText = containerPost.querySelector('#post-text-id');
+        const btnConfirm = containerPost.querySelector('.btn-confirm');
+        console.log(btnConfirm);
         postText.setAttribute('contenteditable', true);
+        const divEdit = document.createElement('div');
+        divEdit.innerHTML = `
+        <button clase="confirm" id="id-confirm">Confirmar</button>
+        `;
+        btnConfirm.insertAdjacentElement('beforebegin', divEdit);
+
+        divEdit.addEventListener('click', () => {
+          console.log('click confirmar');
+          postText.setAttribute('contenteditable', false);
+          editPost(post.id, postText.textContent);
+        });
       });
     }
     return containerPost;
