@@ -73,7 +73,7 @@ export default () => {
 
     btnLike.addEventListener('click', async (e) => {
       e.preventDefault();
-      // o if está verificando se o usuário logado não está incluso na lista de likes
+      // o if está verificando se o usuário logado NÃO(!) está incluso na lista de likes
       if (!post.likes.includes(getUser().uid)) {
         likes(post.id).then(() => {
           post.likes.push(getUser().uid);
@@ -93,22 +93,21 @@ export default () => {
         });
       }
     });
-
+    // o parametro do if apenas confirma quem é o autor do post p exibir o botão
     if (isUserPost) {
       btnEdit.addEventListener('click', async () => {
-        console.log('btn edit');
         const postText = containerPost.querySelector('#post-text-id');
         const btnConfirm = containerPost.querySelector('.btn-confirm');
-        console.log(btnConfirm);
+        // setAttribute modifica o valor do atributo do <p> onde está o texto para tornar editável
         postText.setAttribute('contenteditable', true);
         const divEdit = document.createElement('div');
         divEdit.innerHTML = `
         <button clase="confirm" id="id-confirm">Confirmar</button>
         `;
+        // Insere um elemento o elemento especificado(divEdit) na posição especificada
         btnConfirm.insertAdjacentElement('beforebegin', divEdit);
 
         divEdit.addEventListener('click', () => {
-          console.log('click confirmar');
           postText.setAttribute('contenteditable', false);
           editPost(post.id, postText.textContent);
         });
