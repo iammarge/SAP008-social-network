@@ -9,6 +9,7 @@ import {
   likes,
   dislike,
   editPost,
+  deletePost,
 } from '../firebase/firestore.js';
 
 import { redirect } from '../redirect.js';
@@ -115,6 +116,16 @@ export default () => {
           editPost(post.id, postText.textContent);
         });
       });
+
+      const btnDelete = containerPost.querySelector('#btn-delete-id');
+
+      if (isUserPost) {
+        btnDelete.addEventListener('click', async () => {
+          console.log('click delete ok');
+          await deletePost(post.id);
+          await readAndWritePost();
+        });
+      }
     }
     return containerPost;
   };
@@ -126,6 +137,7 @@ export default () => {
       textPublish.appendChild(templatePublish(post));
     });
   };
+  readAndWritePost();
 
   btnPublish.addEventListener('click', (e) => {
     e.preventDefault();
@@ -133,7 +145,6 @@ export default () => {
     readAndWritePost();
     textPost.value = '';
   });
-  readAndWritePost();
 
   btnLogout.addEventListener('click', () => {
     logout()

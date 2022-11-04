@@ -6,6 +6,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
+  deleteDoc,
 } from './exports.js';
 
 import {
@@ -65,4 +66,8 @@ export const editPost = async (id, text) => {
   return updateDoc(post, {
     text,
   });
+};
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, 'textPost', id));
 };
