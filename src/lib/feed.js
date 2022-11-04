@@ -65,6 +65,9 @@ export default () => {
           <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
           ${isUserPost ? '<button id="btn-edit" class="btn-edit"><img class="edit" src="img/edit.png" alt="Botão Editar"></button>' : ''}
           <div class="btn-confirm"></div>
+         
+          ${isUserPost ? '<button id="btn-delete-id" class="btn-delete"><img class="edit" src="img/delete.png" alt="Botão Excluir"></button>' : ''}
+          
         </div>     
       `;
 
