@@ -123,6 +123,7 @@ export default () => {
         btnDelete.addEventListener('click', async () => {
           console.log('click delete ok');
           await deletePost(post.id);
+          // eslint-disable-next-line no-use-before-define
           await readAndWritePost();
         });
       }
