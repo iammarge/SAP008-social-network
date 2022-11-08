@@ -1,57 +1,80 @@
-import { singInWithGoogle, signIn } from '../firebase/auth.js'
+import {
+  login,
+  signInGoogle,
+} from '../firebase/auth.js';
+
+import {
+  firebaseErrors,
+  validateLogin,
+} from '../errors.js';
+
+import { redirect } from '../redirect.js';
 
 // CRIAÇÃO FORM DE LOGIN
 export default () => {
+  const body = document.body;
+  body.classList.add('login-page');
   const containerLogin = document.createElement('div');
-  containerLogin.classList.add('set-login');
-  const templateLogin = `
-    <div class= "box-container">
-      <picture><img class= "logo" src= "img/logo.png" alt= "logo site"</picture>
-      <form action="" id= "formLogin" class= "boxSignUp">
-        <div class= "register">
-          <input type= "email" placeholder= "Email" id="email" class="input" required>
-          <input type= "password" placeholder= "Senha" id="pwd" class="input" required>
-          <button type= "submit" id="btn-login" class="input">Login</button>
-        </div>
-      </form> 
-      <a href= "">
-        <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Registre-se com o Google.>
-      </a>
-      <p class= "">Não possui cadastro?</p>
-      <a href= "#register"> Registre-se</a>
+  containerLogin.classList.add('container-login');
+  const templateLogin = `    
+      <picture><img class= "logo" src= "img/logo.png" alt= "logo site"/></picture>
+      <section class=box-login>
+        <form action="" id= "formLogin" class= "boxSignUp">
+          <div class= "register">
+            <input type= "email" placeholder= "Email" id="email" class="input" required>
+            <input type= "password" placeholder= "Senha" id="pwd" class="input" required>
+            <span class="error"></span>
+            <button type= "submit" id="btn-login" class="input">Login</button>
+          </div>
+        </form> 
+        <a id="btn-google" href= "">
+          <img class= "google" src= "img/googlelogo.png" alt= "logo Google"> Entre com o Google.
+        </a>
+        <p class= "">
+          Não possui cadastro? <a id="btn-register" href= "#register"> Registre-se</a>        
+        </p> 
+      </section>       
       <footer> Developed by: Marjorie Santos e Tamyres França.</footer>
-    </div>`;
+    `;
   containerLogin.innerHTML = templateLogin;
 
   const emailLogin = containerLogin.querySelector('#email');
-  const passwordLogin = containerLogin.querySelector('#pwd')
+  const passwordLogin = containerLogin.querySelector('#pwd');
   const btnLogin = containerLogin.querySelector('#btn-login');
+  const btnGoogle = containerLogin.querySelector('#btn-google');
+  const btnRegister = containerLogin.querySelector('#btn-register');
+  const messageError = containerLogin.querySelector('.error');
 
+  btnRegister.addEventListener('click', (event) => {
+    event.preventDefault();
+    redirect('#register');
+  });
 
-  btnLogin.addEventListener('click', (e) =>{
-    e.preventDefault();
-    console.log("btn-login OK")
-    signIn(emailLogin.value, passwordLogin.value)
-    .then(() => {
-      console.log('caiu no then para feed')
-      window.location.hash = '#feed'
-    })    
-    .catch((error) => {
-      console.log('caiu no catch singIn')
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      })   
-  })
+  btnLogin.addEventListener('click', (event) => {
+    event.preventDefault();
+    const valid = validateLogin(emailLogin.value, passwordLogin.value);
+    if (valid === '') {
+      login(emailLogin.value, passwordLogin.value)
+        .then(() => {
+          containerLogin.innerHTML = '';
+          redirect('#feed');
+        })
+        .catch((error) => {
+          const errorFirebase = firebaseErrors(error.code);
+          messageError.innerHTML = errorFirebase;
+        });
+    } else {
+      messageError.innerHTML = valid;
+    }
+  });
 
-  const btnGoogle = containerLogin.querySelector('.google');
-  btnGoogle.addEventListener('click', (e) =>{
-    e.preventDefault();
-    console.log("btn OK")
-    singInWithGoogle()
-    .then(() => {
-      console.log('entrou no then login')
-      window.location.hash = '#feed'
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    signInGoogle().then(() => {
+      redirect('#feed');
     })
-  })
+      .catch((error) => error);
+  });
+
   return containerLogin;
 };
