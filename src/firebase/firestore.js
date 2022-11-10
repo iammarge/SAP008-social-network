@@ -6,6 +6,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
+  deleteDoc,
 } from './exports.js';
 
 import {
@@ -58,3 +59,15 @@ export function dislike(id) {
     likes: arrayRemove(auth.currentUser.uid),
   });
 }
+
+export const editPost = async (id, text) => {
+  const post = doc(db, 'textPost', id);
+
+  return updateDoc(post, {
+    text,
+  });
+};
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, 'textPost', id));
+};

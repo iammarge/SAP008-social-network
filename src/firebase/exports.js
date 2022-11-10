@@ -19,4 +19,5 @@ export {
   updateDoc,
   arrayUnion,
   arrayRemove,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js'; //eslint-disable-line
