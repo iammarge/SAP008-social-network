@@ -22,9 +22,7 @@ export default () => {
   const templateFeed = `
     <div class=div-feed>
       <nav class="nav-header">
-        <img class="logo-feed" src="img/logo.png" alt="logo Google">
-        <button type="submit" id="btn-about-us" class="button-nav">Sobre Nós</button>
-        <button type="submit" id="btn-profile" class="button-nav">Profile</button>
+        <img class="logo-feed" src="img/logo.png" alt="logo Google">        
         <a id="btn-logout" class="button-sair">
           <img class="img-logout" src="img/logout.png" alt="Botão Sair">
         </a>
