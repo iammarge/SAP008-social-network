@@ -47,3 +47,10 @@ export function validateLogin(email, password) {
   }
   return '';
 }
+
+export function blackPost(post) {
+  if (post === '') {
+    return 'Campo em branco. Preencha com a sua publicação.';
+  }
+  return '';
+}
