@@ -144,6 +144,7 @@
 
 .number-likes{
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .btn-edit, .btn-delete {
@@ -174,5 +175,39 @@ footer {
     height: 12rem;   
     font-size: 19px;
 }
+
+.likes-div{
+    margin: 7px 5px 20px 20px;   
+}
+
+.heart{
+    height: 15px;
+    width: 15px;    
+}
+
+.heart:before, .heart:after {
+    height: 15px;
+    width: 15px;
     
+}
+
+.heart:before {
+    left: 9px;
+}
+
+.heart:after {
+    right: 0px;
+    top: -9px;
+}
+
+.number-likes {
+    margin-left: 10px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.edit, .btn.delete {
+    width: 28px;
+    padding-left: 6px;
+} 
 }
