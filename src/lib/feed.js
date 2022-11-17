@@ -30,8 +30,7 @@ export default () => {
       <section class="section-message">      
         <textarea id="message" placeholder="Escreva sua publicação aqui..."></textarea>  
         <div class="div-publish">    
-         <p id=error-msg class=error-msg>...</p>
-         <button type="submit" id="publish" class="btn-publish">Publicar</button>  
+          git <button type="submit" id="publish" class="btn-publish">Publicar</button>  
         </div>
       </section>
       <section id="section-posts" class="posts">
@@ -154,8 +153,3 @@ export default () => {
 
   return containerFeed;
 };
-
-// { <div id="buscar">
-//           <input type="text" class="search-for" placeholder="Buscar..." />
-//           <img src="img/lupa.png" id="btn-search" alt="Buscar" />
-//         </div> */}
