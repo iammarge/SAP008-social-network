@@ -1,81 +1,103 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.login-page{
-    background-color: #C6EBC5;
+.login-page {
+  background-color: #C6EBC5;
 }
 
-.container-login{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.container-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.logo{
-    max-width: 100%;
+.logo {
+  max-width: 100%;
 }
 
-.box-login{
-    background-color: rgb(255 255 255 / 60%);
-    padding: 30px 10px 20px 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.box-login {
+  background-color: rgb(255 255 255 / 60%);
+  padding: 30px 10px 20px 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.register{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.register {
+  background-color: rgb(255 255 255 / 60%);
+  padding: 30px 10px 20px 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.input{
-    margin-bottom: 10px;
-    border-radius: 30px;
-    background-color: #FBF2CF;
-    text-align: center;
-    font-size: 16px;
-    width: 18rem;
-    height: 2rem;
-    font-weight: bold;
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
+.input {
+  margin-bottom: 10px;
+  border-radius: 30px;
+  background-color: #FBF2CF;
+  text-align: center;
+  font-size: 16px;
+  width: 18rem;
+  height: 2rem;
+  font-weight: bold;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
 }
 
-#btn-register, #btn-login{
-    width: 10rem;
+#btn-register,
+#btn-login {
+  width: 10rem;
 }
 
-.register-google{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.register-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#btn-google{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#btn-google {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.google{
-    width: 2rem;
-    padding: 8px;
+.google {
+  width: 2rem;
+  padding: 8px;
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px
 }
 
-.footer{
-    text-align: center;
-    margin-top: 10px;
+.footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+@media screen and (min-width: 375px) and (max-width:767) {
+
+  .box-login {
+    padding: 30px 10px 30px 10px;
+  }
+
+  .register {
+    padding: 30px 10px 30px 10px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
 }
