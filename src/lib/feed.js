@@ -9,6 +9,7 @@ import {
   likes,
   dislike,
   editPost,
+  deletePost,
 } from '../firebase/firestore.js';
 
 import { redirect } from '../redirect.js';
@@ -65,6 +66,9 @@ export default () => {
           <div id="num-likes-${post.id}" class="number-likes">${post.likes.length}</div>
           ${isUserPost ? '<button id="btn-edit" class="btn-edit"><img class="edit" src="img/edit.png" alt="Botão Editar"></button>' : ''}
           <div class="btn-confirm"></div>
+         
+          ${isUserPost ? '<button id="btn-delete-id" class="btn-delete"><img class="edit" src="img/delete.png" alt="Botão Excluir"></button>' : ''}
+          
         </div>     
       `;
 
@@ -112,6 +116,17 @@ export default () => {
           editPost(post.id, postText.textContent);
         });
       });
+
+      const btnDelete = containerPost.querySelector('#btn-delete-id');
+
+      if (isUserPost) {
+        btnDelete.addEventListener('click', async () => {
+          console.log('click delete ok');
+          await deletePost(post.id);
+          // eslint-disable-next-line no-use-before-define
+          await readAndWritePost();
+        });
+      }
     }
     return containerPost;
   };
@@ -123,6 +138,7 @@ export default () => {
       textPublish.appendChild(templatePublish(post));
     });
   };
+  readAndWritePost();
 
   btnPublish.addEventListener('click', (e) => {
     e.preventDefault();
@@ -130,7 +146,6 @@ export default () => {
     readAndWritePost();
     textPost.value = '';
   });
-  readAndWritePost();
 
   btnLogout.addEventListener('click', () => {
     logout()
