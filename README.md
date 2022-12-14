@@ -8,8 +8,8 @@
 * [4. Histórias de usuário](#4-histórias-de-usuário)
 * [5. Protótipo](#5-protótipo)
 * [6. Resultado](#7-resultado)
-* [7. Ferramentas utilizadas(#8-ferramentas-utilizadas)
-* [8. Desenvolvedoras(#8-desenvolvedoras)
+* [7. Ferramentas utilizadas](#8-ferramentas-utilizadas)
+* [8. Desenvolvedoras](#8-desenvolvedoras)
 
 ***
 
